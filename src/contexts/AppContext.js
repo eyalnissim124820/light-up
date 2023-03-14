@@ -1,4 +1,7 @@
 import React, { useContext, useState } from 'react';
+import useLocalStorage from '../useLocalStorage';
+import { v4 as uuid } from 'uuid';
+
 // import axios from 'axios';
 
 const AppContext = React.createContext();
@@ -16,42 +19,24 @@ export function AppContextProvider({ children }) {
   //     setAllPets(response.data)
   // }
 
+  const [alarms, setAlarms] = useLocalStorage('alarms', []);
 
-  const clock_list = [
-    {
-      time: '8:00',
-      title: 'Wake Up',
-      mode: true
-    },
-    {
-      time: '8:05',
-      title: 'Wake Up',
-      mode: false
-    },
-    {
-      time: '8:10',
-      title: 'Wake Up',
-      mode: true
-    },
-    {
-      time: '8:10',
-      title: 'Wake Up',
-      mode: true
-    },
-    {
-      time: '8:10',
-      title: 'Wake Up',
-      mode: true
-    },
-    {
-      time: '8:10',
-      title: 'Wake Up',
-      mode: true
-    },
-  ]
+  const addToLocalStorage = (input) => {
+    const date = new Date()
+    const newAlarm = {
+      id: uuid(),
+      time: input.time,
+      title: input.title,
+      mode: true,
+      date: date.toLocaleString()
+    }
+    console.log(newAlarm);
+    setAlarms([...alarms, newAlarm])
+  }
 
   const value = {
-    clock_list
+    alarms,
+    addToLocalStorage
   }
 
   return (

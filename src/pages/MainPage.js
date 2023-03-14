@@ -8,10 +8,18 @@ import StopW_icon from "../attch/iPhone 13/iPhone 13/StopW_icon.svg"
 import Timer_icon from "../attch/iPhone 13/iPhone 13/Timer.svg"
 import World_icon from "../attch/iPhone 13/iPhone 13/World_icon.svg"
 import Alarm_icon from "../attch/iPhone 13/iPhone 13/Alarm_icon.svg"
+import { useNavigate } from 'react-router-dom'
+import ClockAnimation from '../components/ClockAnimation'
 
 export default function MainPage() {
-    const { clock_list } = useApp()
-    console.log(clock_list);
+    const { alarms } = useApp()
+
+    const navigate = useNavigate()
+
+    const handleToAddAlarm = () => {
+        navigate('/add-alarm')
+    }
+
     return (
         <div className='main-container'>
             <div className='main-page'>
@@ -19,14 +27,18 @@ export default function MainPage() {
                     <div className='board-header'>
                         <div className='board-bar'>
                             <button>Edit</button>
-                            <button>Add</button>
+                            <button onClick={handleToAddAlarm}>Add</button>
                         </div>
                         <div className='board-title'>
                             Set Your Light Up!
                         </div>
                     </div>
                     <div className='list-of-clocks'>
-                        <ClockList list={clock_list} />
+                        {alarms[0] ?
+                            <ClockList list={alarms} />
+                            :
+                            <ClockAnimation />
+                        }
                     </div>
                 </div>
                 <div className='clock-footer'>
