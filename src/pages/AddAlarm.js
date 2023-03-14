@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useApp } from '../contexts/AppContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function AddAlarm() {
 
     const { addToLocalStorage } = useApp()
+    const navigate = useNavigate()
 
     const [newAlarm, setNewAlarm] = useState({
         time: '',
@@ -14,10 +16,11 @@ export default function AddAlarm() {
         setNewAlarm({ ...newAlarm, [e.target.id]: e.target.value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(newAlarm)
-        addToLocalStorage(newAlarm)
+        await addToLocalStorage(newAlarm)
+        navigate('/home')
     }
 
     return (
