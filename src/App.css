@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'archay';
+  src:
+    url('./fonts/archay-regualr-aaa.otf') format('otf')
+}
+
+@font-face {
+  font-family: 'font37';
+  src:
+    url('./fonts/font37.otf') format('otf') url('./fonts/font37Bold.otf') format('bold')
+}
+
+@font-face {
+  font-family: 'Strawford';
+  src:
+    url('./fonts/Strawford-Regular.otf')
+}
+
+.App {
+  text-align: center;
+  overflow-y: hidden;
+  height: 100%;
+  width: 100%;
+  background-image: url('./attch/iPhone 13/13\ Pro\ -\ 97.svg');
+  background-size: cover;
+}
+
+.main-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}

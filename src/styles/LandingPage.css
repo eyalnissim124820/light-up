@@ -1,0 +1,71 @@
+.landing-page {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#logo {
+  padding-top: 25%;
+  height: 45px;
+}
+
+#title {
+  padding-top: 10px;
+}
+
+.button-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  width: 173px;
+  font-size: 20px;
+  border: none;
+  background-color: #070709;
+  color: white;
+  text-align: center;
+  padding: 8px 10px 8px 8px;
+  border-radius: 15px;
+  animation: appearing 3s ease-in;
+  background-image: url("../attch/iPhone 13/arrow_white.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 87%;
+}
+
+.button-start:active {
+  background-color: white;
+  color: #070709;
+  background-image: url("../attch/iPhone 13/arrow_black.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 87%;
+}
+
+@keyframes appearing {
+  0% {
+    opacity: 0%;
+  }
+
+  25% {
+    opacity: 25%;
+  }
+
+  50% {
+    opacity: 50%;
+  }
+
+  75% {
+    opacity: 75%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
